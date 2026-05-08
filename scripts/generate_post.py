@@ -46,7 +46,11 @@ Requirements:
 
     data = response.json()
 
-    return data["choices"][0]["message"]["content"]
+    return (
+    data["choices"][0]["message"]["content"]
+    .strip()
+    .strip('"')
+    )
 
 
 def generate_image(topic):
