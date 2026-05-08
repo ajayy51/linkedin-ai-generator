@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>LinkedIn AI Generator</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>
+      LinkedIn AI Generator
+    </h1>
+
+    <p class="subtitle">
+      Generate AI-powered LinkedIn posts instantly
+    </p>
+
+    <div class="input-section">
+
+      <input
+        type="text"
+        id="topic"
+        placeholder="Enter topic..."
+      >
+
+      <button onclick="generatePost()">
+        Generate Preview
+      </button>
+
+    </div>
+
+    <div id="loading" class="hidden">
+      Generating...
+    </div>
+
+    <div id="preview" class="hidden">
+
+      <div class="preview-card">
+
+        <div class="profile">
+
+          <div class="avatar">
+            A
+          </div>
+
+          <div>
+
+            <h3>
+              Ajay Ray Samala
+            </h3>
+
+            <p>
+              AI Engineer
+            </p>
+
+          </div>
+
+        </div>
+
+        <img
+          id="preview-image"
+          src=""
+          alt="Generated Image"
+        >
+
+        <div
+          id="preview-post"
+          class="post-content"
+        ></div>
+
+        <button
+          id="publish-btn"
+          class="publish-btn"
+        >
+          Publish to LinkedIn
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

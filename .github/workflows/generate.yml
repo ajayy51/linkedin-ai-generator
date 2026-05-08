@@ -1,0 +1,42 @@
+name: Generate LinkedIn Post
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "LinkedIn post topic"
+        required: true
+        type: string
+
+jobs:
+
+  generate:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Run AI Generator
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          TOPIC: ${{ github.event.inputs.topic }}
+        run: |
+          python scripts/generate_post.py
+
+      - name: Upload Generated Result
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-post
+          path: generated/post.json
